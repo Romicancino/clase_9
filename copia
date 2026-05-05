@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>TITULARSE</title>
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --color-oscurisimo: #222;
+                --color-oscuro: #444;
+                --color-normal: #666;
+                --color-iluminado: #aaa;
+                --color-iluminadisimo: #ddd;
+            }
+
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                color: var(--color-normal);
+                text-align: left;
+                font-size: 100%;
+            }
+            div#contenedor {
+                margin: 1rem auto 5rem auto;
+                width: 90%;
+                max-width: 720px;
+            }
+
+            h1 {
+                font-weight: 400;
+                font-size: calc(100% + 3vw + 3vh);
+                margin-left:-0.2rem;
+            }
+
+            h2 {
+                margin: 1rem 0 3rem 0;
+                font-weight: 400;
+                letter-spacing: 0.25rem;
+                font-size: calc(100% + 1vw + 1vh);
+                color: var(--color-oscuro);
+            }
+
+            canvas#myChart{
+                margin:3rem 0;
+                background:#eee;
+                padding:1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+            <h1>Título</h1>
+            <h2>Cursados y aprobados</h2>
+            <p>una analización de datos de los cursados y aprobados de título en la FAU</p>
+            <canvas id="myChart"></canvas>
+            <p>Existen profesores que han tenido pocos alumnos, sin embargo un porcentaje bastante alto de alumnos titulados </p>
+        </div>
+		
+		<object data="papoi" type="image/svg+xml"></object>
+
+      
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            new Chart(document.getElementById("myChart"), {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Mariana Young A.",
+                        "Verónica Ode S.",
+                        "Eduardo Castillo E.",
+                        "Leonardo Soto C.",
+                        "Jenny Abud C."
+                    ],
+
+                    datasets: [
+                        {
+                            label: ":-(",
+                            data: [6, 12, 17, 18, 2],
+                            borderWidth: 1,
+                            backgroundColor:"#c00"
+                        },
+                        {
+                            label: ":-)",
+                            data: [6, 25, 19, 14, 11],
+                            borderWidth: 2,
+                            backgroundColor:"#22f"
+                        }
+                    ],
+                },
+                options: {
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            beginAtZero: true,
+                            stacked: true,
+                        },
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
